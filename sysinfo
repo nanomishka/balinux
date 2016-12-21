@@ -60,7 +60,6 @@ echo "Content-type: text/html
       <tr>
         <td>Средняя загрузка</td>
         <td>$LoadAvg1, $LoadAvg5, $LoadAvg15</i></td>
-        <td>$LoadAvg1Perc, $LoadAvg5Perc, $LoadAvg15Perc</i></td>
       </tr>
       <tr>
         <td>Загрузка дисков</td>
