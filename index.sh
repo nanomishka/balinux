@@ -45,6 +45,7 @@ echo "Content-type: text/html
   <head>
     <title>BALINUX</title>
     <style type='text/css'>$STYLES</style>
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF8'>
   </head>
 
   <body>
@@ -52,6 +53,14 @@ echo "Content-type: text/html
     <p>Страница сгенерирована <i>$TIME</i></p>
 
     <table cellpadding=0 cellspacing=0>
+      <tr>
+        <td>IP клиента</td>
+        <td>$REMOTE_PORT</i></td>
+      </tr>
+      <tr>
+        <td>Port клиента</td>
+        <td>$REMOTE_ADDR</i></td>
+      </tr>
       <tr>
         <td>Средняя загрузка</td>
         <td>$LoadAvg1, $LoadAvg5, $LoadAvg15</i></td>
