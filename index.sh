@@ -13,7 +13,7 @@ EthStat=""
 for interface in "${interfaces[@]}"
 do
    name="<p>     <b>$interface</b></p>"
-   stat=$(ethtool -S $interface | tail -n +2 | head -n +13| sed 's/$/<br>/g')
+   stat=$(ethtool -S $interface | tail -n +2 | head -n +4| sed 's/$/<br>/g')
    EthStat=$EthStat$name$stat"<br>"
 done
 
@@ -21,7 +21,7 @@ SocStat=$(netstat -tunl | tail -n +3 | grep LISTEN | sed 's/$/<br>/g')
 TCPStat=$(netstat -ant | tail -n +3 | awk '{print $6}' | sort | uniq -c | sort -n | sed 's/$/<br>/g')
 CPUStat=$(vmstat | tail -n +2 | cut -c$(vmstat | head -n2 | tail -n1 | grep -aob 'us' | grep -oE '[0-9]+')- | sed 's/$/<br>/g')
 
-CpuData=$(tail -n1 /home/yuldashev/balinux/cpu)
+CpuData=$(tail -n1 /var/www/balinux/cpu)
 
 CpuUs=$(echo $CpuData | awk '{print $13}')
 CpuSy=$(echo $CpuData | awk '{print $14}')
@@ -54,16 +54,13 @@ echo "Content-type: text/html
 
     <table cellpadding=0 cellspacing=0>
       <tr>
-        <td>IP клиента</td>
-        <td>$REMOTE_PORT</i></td>
-      </tr>
-      <tr>
-        <td>Port клиента</td>
-        <td>$REMOTE_ADDR</i></td>
+        <td>Клиент</td>
+        <td>$REMOTE_ADDR:$REMOTE_PORT</i></td>
       </tr>
       <tr>
         <td>Средняя загрузка</td>
         <td>$LoadAvg1, $LoadAvg5, $LoadAvg15</i></td>
+        <td>$LoadAvg1Perc, $LoadAvg5Perc, $LoadAvg15Perc</i></td>
       </tr>
       <tr>
         <td>Загрузка дисков</td>

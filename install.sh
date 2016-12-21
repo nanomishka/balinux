@@ -6,6 +6,8 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+fuser -vki /var/lib/dpkg/lock
+
 apt-get install apache2 sysstat -y
 
 # apache2 enable mod_cgi
@@ -16,3 +18,5 @@ sed -i '/Listen 80/cListen 5000' /etc/apache2/ports.conf
 mkdir /var/www/balinux
 cp index.sh /var/www/balinux/
 service apache2 restart
+
+vmstat 1 > /var/www/balinux/cpu &
