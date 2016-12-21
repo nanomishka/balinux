@@ -13,6 +13,7 @@ apt-get install apache2 sysstat -y
 # apache2 enable mod_cgi
 ln -s /etc/apache2/mods-available/cgid* /etc/apache2/mods-enabled/.
 cp balinux.conf /etc/apache2/sites-available/
+rm /etc/apache2/sites-enabled/*
 ln -s /etc/apache2/sites-available/balinux.conf /etc/apache2/sites-enabled/.
 mkdir /var/www/balinux
 cp sysinfo /var/www/balinux/
