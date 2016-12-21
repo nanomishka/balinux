@@ -14,9 +14,8 @@ apt-get install apache2 sysstat -y
 ln -s /etc/apache2/mods-available/cgid* /etc/apache2/mods-enabled/.
 cp balinux.conf /etc/apache2/sites-available/
 ln -s /etc/apache2/sites-available/balinux.conf /etc/apache2/sites-enabled/.
-sed -i '/Listen 80/cListen 5000' /etc/apache2/ports.conf
 mkdir /var/www/balinux
-cp index.sh /var/www/balinux/
+cp sysinfo /var/www/balinux/
 service apache2 restart
 
 vmstat 1 > /var/www/balinux/cpu &
