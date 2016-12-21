@@ -10,4 +10,4 @@ apt-get install nginx apache2 sysstat -y
 
 # apache2 enable mod_cgi
 cd /etc/apache2/mods-enabled/
-sudo ln -s ../mods-available/cgid* .
+sudo ln -s /etc/apache2/mods-available/cgid* /etc/apache2/mods-enabled/.
