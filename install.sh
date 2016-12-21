@@ -11,5 +11,5 @@ apt-get install apache2 sysstat -y
 # apache2 enable mod_cgi
 cd /etc/apache2/mods-enabled/
 ln -s /etc/apache2/mods-available/cgid* /etc/apache2/mods-enabled/.
-cp balinux /etc/apache2/sites-available/
-ln -s /etc/apache2/sites-available/balinux /etc/apache2/sites-enabled/.
+cp balinux.conf /etc/apache2/sites-available/
+ln -s /etc/apache2/sites-available/balinux.conf /etc/apache2/sites-enabled/.
