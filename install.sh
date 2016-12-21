@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-apt-get install nginx apache2 sysstat -y
+apt-get install apache2 sysstat -y
 
 # apache2 enable mod_cgi
 cd /etc/apache2/mods-enabled/
